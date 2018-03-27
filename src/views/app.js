@@ -27,7 +27,7 @@ const App = props =>
 				/>
 			</Sider>
 			<Layout>
-				<Header className="header" />
+				<Header className="header">555555</Header>
 				<Content>
 					<RouteList routes={routes} />
 				</Content>

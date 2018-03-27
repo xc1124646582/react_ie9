@@ -3,6 +3,7 @@ import { Alert } from "antd";
 
 import Http from "../components/Http";
 import Push from "../components/Push";
+import Greeter from "../components/Greeter";
 
 const Home = props => "主页";
 const Test = props => "测试";
@@ -50,6 +51,7 @@ const routes = [
 	{ type: "redirect", exact: true, strict: true, from: "/", to: "/home" },
 	{ type: "route", path: "/home", component: Home },
 	{ type: "route", path: "/test", component: Test },
+	{ type: "route", path: "/user", component: Greeter },
 	{ type: "route", component: NoAu },
 ];
 export default routes;
