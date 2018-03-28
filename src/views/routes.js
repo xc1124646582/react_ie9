@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Alert } from "antd";
 
-import Http from "../components/Http";
-import Push from "../components/Push";
 import Greeter from "../components/Greeter";
 
 const Home = props => "主页";
@@ -42,8 +40,6 @@ class NoAu extends Component {
 					</div>
 				)}
 			</div>
-			<Http value={url} onChange={this.change("url")} />
-			<Push value={file} onChange={this.change("file")} />
 		</div>;
 	};
 };

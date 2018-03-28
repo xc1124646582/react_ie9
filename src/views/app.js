@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Router } from "react-router-dom";
 import { Layout } from "antd";
-
+import {connect} from 'react-redux'
 import { SIDER_URLS, SIDER_MENU } from "../constants/columns";
 import { RouteMenu } from "../components/Menu";
 import { RouteList } from "../components/Route";
@@ -10,8 +10,10 @@ import routes from "./routes";
 import "./app.less";
 
 const { Header, Footer, Sider, Content } = Layout;
-const App = props =>
-	<Router history={history}>
+class App extends Component{
+
+	 render(){
+	 	return(<Router history={history}>
 		<Layout>
 			<Sider
 				className="sider"
@@ -26,7 +28,7 @@ const App = props =>
 					urls={SIDER_URLS}
 				/>
 			</Sider>
-			<Layout>
+			<Layout> 
 				<Header className="header">555555</Header>
 				<Content>
 					<RouteList routes={routes} />
@@ -34,5 +36,7 @@ const App = props =>
 				<Footer />
 			</Layout>
 		</Layout>
-	</Router>;
-export default App;
+	</Router>)
+	 }
+}
+export default connect (null,null)(App);
