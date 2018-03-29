@@ -1,20 +1,36 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {connect} from 'react-redux';
+import RouterUtils from '../utils/RouterUtils';
 import { bindActionCreators } from 'redux';
+import { getRoute } from "../components/Route";
 import {click} from '../action';
+import { Redirect } from 'react-router-dom';  
 class Greeter extends Component{
-
+  state = {
+    redirect:''
+  };
     confn(){
     	this.props.click()
     }
+
+    clearfn=()=>{
+       RouterUtils.go('home');
+    }
+
+    handleOnClick = () => {  
+  this.setState({redirect: true});  
+}  
   render() {
-  	console.log(this.props.num)
+  	if (this.state.redirect) {  
+    return <Redirect push to="/hello" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
+  }  
     return (
       <div>
         <div>
         	<button onClick={this.confn.bind(this)}>点击</button>
         	<span>span{this.props.num}</span>
+          <button onClick={this.handleOnClick} type="button">进入加载页</button>
         </div>
       </div>
     );

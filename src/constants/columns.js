@@ -1,6 +1,6 @@
 export const SIDER_URLS = {
 	"/home": { label: "首页", icon: "home" },
-	"/home/spins": { label: "加载中000", icon: "pause", type: "link" },
+	"/home/spins": { label: "Table", icon: "pause", type: "link" },
 	"/home/modals": { label: "对话框", icon: "question", type: "link" },
 	"/home/icons": { label: "图标", icon: "scan", type: "link" },
 	"/hello": { label: "你好", icon: "smile", type: "link" },

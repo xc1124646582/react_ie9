@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Router } from "react-router-dom";
 import { Layout } from "antd";
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {click} from '../action';
 import { SIDER_URLS, SIDER_MENU } from "../constants/columns";
 import { RouteMenu } from "../components/Menu";
 import { RouteList } from "../components/Route";
@@ -13,6 +15,7 @@ const { Header, Footer, Sider, Content } = Layout;
 class App extends Component{
 
 	 render(){
+	 	console.log(this.props.children) 
 	 	return(<Router history={history}>
 		<Layout>
 			<Sider
@@ -29,7 +32,7 @@ class App extends Component{
 				/>
 			</Sider>
 			<Layout> 
-				<Header className="header">555555</Header>
+				<Header className="header">{this.props.num}</Header>
 				<Content>
 					<RouteList routes={routes} />
 				</Content>
@@ -39,4 +42,19 @@ class App extends Component{
 	</Router>)
 	 }
 }
-export default connect (null,null)(App);
+const state2props = (state = {},ownProps)  =>{
+
+    const num = state.one.num
+    // 获取数据
+    return Object.assign({},{num},ownProps) ;
+
+};
+
+const dispatch2props =(dispatch) => {
+
+    // 获取方法
+
+    return bindActionCreators({click}, dispatch);
+
+};
+export default connect (state2props,dispatch2props)(App);

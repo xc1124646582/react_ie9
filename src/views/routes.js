@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Alert } from "antd";
 
 import Greeter from "../components/Greeter";
-
+import Tables from "../components/Table";
 const Home = props => "主页";
 const Test = props => "测试";
 class NoAu extends Component {
@@ -14,6 +14,7 @@ class NoAu extends Component {
 	change = key => val => this.setState({ [key]: val });
 	componentDidMount() {
 		const wrap = $(".sort-test");
+		console.log(wrap)
 		wrap.sortable({
 			axis: "y",
 			items: "> .item",
@@ -45,9 +46,11 @@ class NoAu extends Component {
 };
 const routes = [
 	{ type: "redirect", exact: true, strict: true, from: "/", to: "/home" },
-	{ type: "route", path: "/home", component: Home },
+	{ type: "route", path: "/home/spins",component:Tables},
+	{ type: "route", path: "/home",component:Home},
 	{ type: "route", path: "/test", component: Test },
 	{ type: "route", path: "/user", component: Greeter },
 	{ type: "route", component: NoAu },
 ];
+
 export default routes;

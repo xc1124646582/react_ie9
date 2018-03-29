@@ -206,6 +206,7 @@ class WrapMenu extends Component {
 			location,
 			...res
 		} = this.props;
+		console.log(this.props)
 		const { pathname } = location || {};
 		return <Menu
 			onOpenChange={this.keySwitch}
